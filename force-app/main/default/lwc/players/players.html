@@ -1,0 +1,80 @@
+<template>
+    <lightning-card>
+        <!-- <div class="slds-text-heading_large">Stats</div> -->
+        <!-- object-api-name="Player__c"
+        record-id={recordId} -->
+
+        <div class="slds-grid">
+            <div class="slds-col slds-size_1-of-2 slds-var-p-around_x-small">
+                <template if:true={player}> 
+                    <div class = "slds-var-m-left_small slds-var-m-top_large">
+                        <p><strong>Name:      </strong> {player.Name} {player.Last_Name__c}</p>
+                        <p><strong>Franchise: </strong> {player.Franchise__r.Name}</p> 
+                        <p><strong>Country:   </strong> {player.Birth_Place__c}</p>
+                        <p><strong>Age:       </strong> {player.Age__c}</p>
+                        <p><strong>Role:      </strong> {player.Role__c}</p>
+                        <p><strong>Style:     </strong> {player.Style__c}</p>
+                    </div> 
+                </template>
+            </div>
+            
+            <div class = "slds-col slds-size_1-of-2 slds-var-m-right_small">
+                <template if:true={player}>
+                    <img src={player.URL__c} alt="Player Image">
+                </template>
+            </div>
+        </div>
+        <hr>
+        <!-- <second grid> -->
+            <div class="slds-align_absolute-center slds-var-m-bottom_large">
+                <lightning-button-group>
+                    <lightning-button variant="Success" label="Bat" onclick={handleClickBat}></lightning-button>
+                    <lightning-button  variant="Brand" label="Ball" onclick={handleClickBall}></lightning-button>
+                </lightning-button-group>
+            </div>
+
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-4"></div>
+                <div class="slds-col slds-size_2-of-4">
+                <template if:true={showbatdata}>
+                    <template if:true={player}> 
+                        <div class = "slds-var-m-left_small slds-var-m-top_large center">
+                            <div class="slds-box slds-var-m-around_medium slds-var-p-around_medium">
+                                <p><strong>Matches: </strong> <lightning-badge label={player.Matches__c} class="slds-badge_inverse"></lightning-badge></p></br>
+                                <p><strong>Runs: </strong> <lightning-badge label={player.Runs__c} class="slds-badge_inverse"></lightning-badge></p></br>
+                                <p><strong>Centuries: </strong> <lightning-badge label={player.Centuries__c} class="slds-badge_inverse"></lightning-badge></p></br>
+                                <p><strong>Half Centuries: </strong> <lightning-badge label={player.Half_Centuries__c} class="slds-badge_inverse"></lightning-badge></p></br>
+                                <p><strong>Strike Rate: </strong> <lightning-badge label={player.Strike_Rate__c} class="slds-badge_inverse"></lightning-badge></p></br>
+                                <p><strong>Average: </strong> <lightning-badge label={player.Average__c} class="slds-badge_inverse"></lightning-badge></p>
+                            </div>
+                        </div> 
+                    </template>
+                </template>
+
+                <!-- </div>
+                <div class="slds-grid"> -->
+                <template if:true={showballdata}>
+                    <template if:true={player}> 
+                        <div class = "slds-var-m-left_small slds-var-m-top_large center">
+                            <div class="slds-box slds-var-m-around_medium slds-var-p-around_medium">
+                                <p><strong>Wickets: </strong> <lightning-badge label={player.Wickets__c} class="slds-badge_inverse"></lightning-badge></p></br>
+                                <p><strong>Economy: </strong> <lightning-badge label={player.Economy__c} class="slds-badge_inverse"></lightning-badge></p></br>
+                                <p><strong>Average: </strong> <lightning-badge label={player.AverageB__c} class="slds-badge_inverse"></lightning-badge></p></br>
+                                <p><strong>Strike Rate: </strong> <lightning-badge label={player.Strike_RateB__c} class="slds-badge_inverse"></lightning-badge></p></br>
+                                <p><strong>Maidens: </strong> <lightning-badge label={player.Maidens__c} class="slds-badge_inverse"></lightning-badge></p>
+                            </div>
+                        </div> 
+                    </template>
+                </template>
+                </div>
+                <div class="slds-col slds-size_1-of-4"></div>
+            </div>
+            
+            <div class="slds-col slds-size_1-of-1" style="background:yellow; margin: 8px;"></div>
+            
+    </lightning-card>
+</template>
+
+        <!-- <div>
+            <h1>{recordId} </h1>
+        </div> -->

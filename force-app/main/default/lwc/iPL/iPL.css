@@ -1,0 +1,62 @@
+/* .search-container {
+    background-image: url('/players/Cricket.jpg');
+    background-size: cover;
+    padding: 20px;
+} */
+
+/* .img{
+    background-image: url('/players/Cricket.jpg');
+}
+ */
+
+ .image{
+    background-image: url('https://valuecloudservices6-dev-ed--c.develop.vf.force.com/resource/1708529104000/Cricket?');
+    /* background-size: cover; */
+    box-sizing: border-box;
+    padding: 25px;
+ }
+
+.img{
+    border-radius: 20px;
+}
+
+.box{
+    border-radius: 40px;
+    background: blanchedalmond;
+}
+
+.css-serial {
+    counter-reset: serial-number;
+}
+  
+.css-serial td:first-child:before {
+    counter-increment: serial-number; 
+    content: counter(serial-number); 
+}
+
+th {
+    /* width:150px; */
+    /* border-right: solid 1px rgb(53, 52, 52); 
+    border-left: solid 1px rgb(53, 52, 52); */
+    text-align:center;
+    /* padding:5px */
+}
+
+table { border-collapse: collapse; }
+tr,td {
+  text-align: center;
+  /* border-right: solid 1px rgb(53, 52, 52);  */
+  /* border-left: solid 1px rgb(53, 52, 52); */
+}
+
+td img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.content{
+    display: flex;
+    flex-wrap: wrap;
+}

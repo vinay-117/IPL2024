@@ -1,0 +1,378 @@
+<template>
+    <lightning-card>
+        <!-- Search bar with background -->
+        <!-- <lightning-card> -->
+            <!-- <div class="slds-var-m-bottom_large slds-var-m-around_xxx-small"> -->
+                <div class="image">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-4"></div>
+                        <div class="slds-col slds-size_2-of-4">
+                            <div class="slds-var-m-around_xx-large">
+                                <lightning-input type="search" placeholder="search something"></lightning-input>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-4"></div>
+                    </div>
+                </div>
+            <!-- </div> -->
+        <!-- </lightning-card> -->
+        
+        <!-- Tabs -->
+        <lightning-tabset>
+
+            <!-- Teams tab -->
+            <lightning-tab label="Teams">
+                <div class="slds-grid">
+                    <div class="content">
+                        <template for:each={franchiseFieldDetails} for:item="image">
+                            <c-ipl-images key={franchiseFieldDetails.Id} franchise={image} onselected = {handleData}></c-ipl-images>
+                        </template>
+                    </div>
+                    <!-- <div class="slds-col slds-size_1-of-5">
+                        <div class="slds-box slds-var-m-around_x-large box" onclick={handleclick}>
+                            <img src={cs} alt="CSK">
+                        </div>
+                    </div> -->
+
+                    <!-- <div class= "slds-col slds-size_1-of-5">
+                        <div class="slds-box slds-var-m-around_x-large box">
+                            <img src={rc} alt="RCB">
+                        </div>
+                    </div>
+
+                    <div class= "slds-col slds-size_1-of-5">
+                        <div class="slds-box slds-var-m-around_x-large box">
+                            <img src={mi} alt="MI">
+                        </div>
+                    </div>
+
+                    <div class= "slds-col slds-size_1-of-5">
+                        <div class="slds-box slds-var-m-around_x-large box">
+                            <img src={kr} alt="KKR">
+                        </div>
+                    </div>
+
+                    <div class= "slds-col slds-size_1-of-5">
+                        <div class="slds-box slds-var-m-around_x-large box">
+                            <img src={sh} alt="SRH">
+                        </div>
+                    </div> -->
+                </div>
+
+                <!-- <div class="slds-grid">
+                    <div class= "slds-col slds-size_1-of-5">
+                        <div class="slds-box slds-var-m-around_x-large box">
+                            <img src={gt} alt="GT">
+                        </div>
+                    </div>
+
+                    <div class= "slds-col slds-size_1-of-5">
+                        <div class="slds-box slds-var-m-around_x-large box">
+                            <img src={lg} alt="LSG">
+                        </div>
+                    </div>
+
+                    <div class= "slds-col slds-size_1-of-5">
+                        <div class="slds-box slds-var-m-around_x-large box">
+                            <img src={dc} alt="DC">
+                        </div>
+                    </div>
+
+                    <div class= "slds-col slds-size_1-of-5">
+                        <div class="slds-box slds-var-m-around_x-large box">
+                            <img src={rr} alt="RR">
+                        </div>
+                    </div>
+
+                    <div class= "slds-col slds-size_1-of-5">
+                        <div class="slds-box slds-var-m-around_x-large box">
+                            <img src={pk} alt="Punjab">
+                        </div>
+                    </div>
+
+                </div> -->
+            </lightning-tab>
+
+            <!-- Schedule tab -->
+            <lightning-tab label="Schedule"></lightning-tab>
+
+            <!-- Points table tab -->
+            <lightning-tab label=" Points Table"></lightning-tab>
+
+            <!-- Stats tab -->
+            <lightning-tab label="Stats">
+                <lightning-tabset active-tab-value="one">
+                    <lightning-tab label="Runs" value="one">
+                        <div style="height: 300px;">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered css-serial">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="50">Position</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Franchise</th>
+                                        <th scope="col">Runs</th>
+                                        <th scope="col">Country</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Loop through player data and display in HTML table -->
+                                    <template for:each={playerObj.data} for:item="player">
+                                        <tr key={player.Id}>
+                                            <td></td>
+                                            <td>
+                                                <template if:true={player.URL__c}>
+                                                    <img src={player.URL__c} alt={player.Name} style="max-width: 75px; max-height: 75px;">
+                                                </template>
+                                                {player.Name} {player.Last_Name__c}</td>
+                                            <td>{player.Franchise__r.Name}</td>
+                                            <td>{player.Runs__c}</td>
+                                            <td>{player.Birth_Place__c}</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </lightning-tab>
+
+                    <!-- High Score -->
+                    <lightning-tab label="Highest Score" value="two">
+                        <div style="height: 300px;">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered css-serial">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="50">Position</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Franchise</th>
+                                        <th scope="col">Highest Score</th>
+                                        <th scope="col">Country</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Loop through player data and display in HTML table -->
+                                    <template for:each={playerObj2.data} for:item="player">
+                                        <tr key={player.Id}>
+                                            <td></td>
+                                            <td>
+                                                <template if:true={player.URL__c}>
+                                                    <img src={player.URL__c} alt={player.Name} style="max-width: 75px; max-height: 75px;">
+                                                </template>
+                                                {player.Name} {player.Last_Name__c}</td>
+                                            <td>{player.Franchise__r.Name}</td>
+                                            <td>{player.Highest__c}</td>
+                                            <td>{player.Birth_Place__c}</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </lightning-tab>
+
+                    <!-- centuries -->
+                    <lightning-tab label="Centuries" value="three">
+                        <div style="height: 300px;">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered css-serial">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="50">Position</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Franchise</th>
+                                        <th scope="col">Centuries</th>
+                                        <th scope="col">Country</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Loop through player data and display in HTML table -->
+                                    <template for:each={playerObj3.data} for:item="player">
+                                        <tr key={player.Id}>
+                                            <td></td>
+                                            <td>
+                                                <template if:true={player.URL__c}>
+                                                    <img src={player.URL__c} alt={player.Name} style="max-width: 75px; max-height: 75px;">
+                                                </template>
+                                                {player.Name} {player.Last_Name__c}</td>
+                                            <td>{player.Franchise__r.Name}</td>
+                                            <td>{player.Centuries__c}</td>
+                                            <td>{player.Birth_Place__c}</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </lightning-tab>
+
+                    <!-- Half centuries -->
+                    <lightning-tab label="Half-Centuries" value="four">
+                        <div style="height: 300px;">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered css-serial">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="50">Position</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Franchise</th>
+                                        <th scope="col">Half Centuries</th>
+                                        <th scope="col">Country</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Loop through player data and display in HTML table -->
+                                    <template for:each={playerObj4.data} for:item="player">
+                                        <tr key={player.Id}>
+                                            <td></td>
+                                            <td>
+                                                <template if:true={player.URL__c}>
+                                                    <img src={player.URL__c} alt={player.Name} style="max-width: 75px; max-height: 75px;">
+                                                </template>
+                                                {player.Name} {player.Last_Name__c}</td>
+                                            <td>{player.Franchise__r.Name}</td>
+                                            <td>{player.Half_Centuries__c}</td>
+                                            <td>{player.Birth_Place__c}</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </lightning-tab>
+
+                    <!-- Strike Rate -->
+                    <lightning-tab label="Strike Rate" value="five">
+                        <div style="height: 300px;">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered css-serial">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="50">Position</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Franchise</th>
+                                        <th scope="col">Strike Rate</th>
+                                        <th scope="col">Country</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Loop through player data and display in HTML table -->
+                                    <template for:each={playerObj5.data} for:item="player">
+                                        <tr key={player.Id}>
+                                            <td></td>
+                                            <td>
+                                                <template if:true={player.URL__c}>
+                                                    <img src={player.URL__c} alt={player.Name} style="max-width: 75px; max-height: 75px;">
+                                                </template>
+                                                {player.Name} {player.Last_Name__c}</td>
+                                            <td>{player.Franchise__r.Name}</td>
+                                            <td>{player.Strike_Rate__c}</td>
+                                            <td>{player.Birth_Place__c}</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </lightning-tab>
+                    <lightning-tab label="Wickets" value="six">
+                        <div style="height: 300px;">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered css-serial">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="50">Position</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Franchise</th>
+                                        <th scope="col">Wickets</th>
+                                        <th scope="col">Country</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Loop through player data and display in HTML table -->
+                                    <template for:each={playerObj6.data} for:item="player">
+                                        <tr key={player.Id}>
+                                            <td></td>
+                                            <td>
+                                                <template if:true={player.URL__c}>
+                                                    <img src={player.URL__c} alt={player.Name} style="max-width: 75px; max-height: 75px;">
+                                                </template>
+                                                {player.Name} {player.Last_Name__c}</td>
+                                            <td>{player.Franchise__r.Name}</td>
+                                            <td>{player.Wickets__c}</td>
+                                            <td>{player.Birth_Place__c}</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </lightning-tab>
+                    <lightning-tab label="Economy" value="seven">
+                        <div style="height: 300px;">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered css-serial">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="50">Position</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Franchise</th>
+                                        <th scope="col">Economy</th>
+                                        <th scope="col">Country</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Loop through player data and display in HTML table -->
+                                    <template for:each={playerObj7.data} for:item="player">
+                                        <tr key={player.Id}>
+                                            <td></td>
+                                            <td>
+                                                <template if:true={player.URL__c}>
+                                                    <img src={player.URL__c} alt={player.Name} style="max-width: 75px; max-height: 75px;">
+                                                </template>
+                                                {player.Name} {player.Last_Name__c}</td>
+                                            <td>{player.Franchise__r.Name}</td>
+                                            <td>{player.Economy__c}</td>
+                                            <td>{player.Birth_Place__c}</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </lightning-tab>
+                    <lightning-tab label="Bowling Average" value="eight">
+                        <div style="height: 300px;">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered css-serial">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="50">Position</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Franchise</th>
+                                        <th scope="col">Average</th>
+                                        <th scope="col">Country</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Loop through player data and display in HTML table -->
+                                    <template for:each={playerObj8.data} for:item="player">
+                                        <tr key={player.Id}>
+                                            <td></td>
+                                            <td>
+                                                <template if:true={player.URL__c}>
+                                                    <img src={player.URL__c} alt={player.Name} style="max-width: 75px; max-height: 75px;">
+                                                </template>
+                                                {player.Name} {player.Last_Name__c}</td>
+                                            <td>{player.Franchise__r.Name}</td>
+                                            <td>{player.AverageB__c}</td>
+                                            <td>{player.Birth_Place__c}</td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </lightning-tab>
+
+                </lightning-tabset>
+            </lightning-tab>
+
+            <!-- Media tab -->
+            <lightning-tab label=" Media"></lightning-tab>
+
+            <!-- News tab -->
+            <lightning-tab label="News"> </lightning-tab>
+
+            <!-- Videos tab -->
+            <lightning-tab label="Videos"></lightning-tab>
+        </lightning-tabset>
+    </lightning-card>
+</template>

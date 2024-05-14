@@ -1,0 +1,16 @@
+<template>
+    <div onclick={imageHandler}>
+        <template if:true={showData}>
+            <div class="content size box">
+                <img src={franchise.FranchiseImage__c} class="slds-align_absolute-center" style="margin-top: 12px;">
+            </div>
+        </template>
+        <template if:false={showData}>
+            <img src={franchise.Team_Management__c}/>
+            <br/>
+            <img src={franchise.Support_Staff__c}/>
+            <br/>
+            <img src={franchise.Players__c}/>
+        </template>
+    </div>
+</template>

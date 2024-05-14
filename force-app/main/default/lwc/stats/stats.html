@@ -1,0 +1,106 @@
+<template>
+    <lightning-card  class="body">
+        <div class="bord " style="border: blue;">
+        <div class="slds-text-heading_large">Player Stats Across Formats</div>
+        <!-- <lightning-button variant="Stat" label="Stat" title="Button" onclick={handleClick} class="slds-var-m-around_small"></lightning-button> -->
+            <!-- First Grid -->
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-3 box">
+                    <div class="slds-box slds-var-m-around_large" onclick={handleClick}>
+                        <img src={vk} alt="Virat"> <br/>
+                        <br/>
+                        <lightning-badge label={HRName} class="slds-badge_inverse"></lightning-badge>
+                        <br/>
+                        <b>Highest Runs: {HRRuns}</b>   
+                    </div>
+                </div>  
+
+                <div class="slds-col slds-size_1-of-3 box">
+                    <div class="slds-box slds-var-m-around_large" onclick={handleClick2}>
+                        <img src={yc} alt="Chahal">  <br/>
+                        <br/>
+                        <lightning-badge label={BName} class="slds-badge_inverse"></lightning-badge>
+                        <br/>
+                        <b>Highest Wickets: {Hwickets} </b>
+                    </div>
+                </div>
+
+                <div class="slds-col slds-size_1-of-3 box">
+                    <div class="slds-box slds-var-m-around_large" onclick={handleClick3}>
+                        <img src={kl} alt="Rahul">  <br/>
+                        <br/>
+                        <lightning-badge label={HSName} class="slds-badge_inverse"></lightning-badge>
+                        <br/>
+                        <b>Highest Score: {HSHighest}</b>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Second Grid -->
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-3 box">
+                        <div class="slds-box slds-var-m-around_large" onclick={handleClick4}>
+                            <img src={as} alt="Abhishek">  <br/>
+                            <br/>
+                            <lightning-badge label={AName} class="slds-badge_inverse"></lightning-badge>
+                            <br/>
+                            <b>Best Batting Average: {BAverage}</b>
+                        </div>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-3 box">
+                        <div class="slds-box slds-var-m-around_large" onclick={handleClick5}>
+                            <img src={ar} alt="Rahane">  <br/>
+                            <br/>
+                            <lightning-badge label={EName} class="slds-badge_inverse"></lightning-badge>
+                            <br/>
+                            <b>Best Economy: {BeEconomy}</b>    
+                        </div>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-3 box">
+                        <div class="slds-box slds-var-m-around_large" onclick={handleClick6}>
+                            <img src={td} alt="Tim">  <br/>
+                            <br/>
+                            <lightning-badge label={BSName} class="slds-badge_inverse"></lightning-badge>
+                            <br/>
+                            <b>Best Strike Rate: {BSRate}</b>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third Grid -->
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-3 box">
+                        <div class="slds-box slds-var-m-around_large" onclick={handleClick7}>
+                            <img src={vrK} alt="Kohli">  <br/>
+                            <br/>
+                            <lightning-badge label={CeName} class="slds-badge_inverse"></lightning-badge>
+                            <br/>
+                            <b>Most Centuries: {pcenturies}</b>
+                        </div>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-3 box">
+                        <div class="slds-box slds-var-m-around_large" onclick={handleClick8}>
+                            <img src={dw} alt="Warner">  <br/>
+                            <br/>
+                            <lightning-badge label={HCName} class="slds-badge_inverse"></lightning-badge>
+                            <br/>
+                            <b>Most Half Centuries: {PHCent}</b>    
+                        </div>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-3 box">
+                        <div class="slds-box slds-var-m-around_large" onclick={handleClick9}>
+                            <img src={nu} alt="Naveen">  <br/>
+                            <br/>
+                            <lightning-badge label={MName} class="slds-badge_inverse"></lightning-badge>
+                            <br/>   
+                            <b>Most Maidens: {MMaidens}</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </lightning-card>
+</template>
