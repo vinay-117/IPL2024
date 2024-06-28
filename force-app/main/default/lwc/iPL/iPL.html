@@ -23,18 +23,18 @@
             <!-- Teams tab -->
             <lightning-tab label="Teams">
                 <div class="slds-grid">
-                    <div class="content">
+                    <!-- <div class="content">
                         <template for:each={franchiseFieldDetails} for:item="image">
                             <c-ipl-images key={franchiseFieldDetails.Id} franchise={image} onselected = {handleData}></c-ipl-images>
                         </template>
-                    </div>
-                    <!-- <div class="slds-col slds-size_1-of-5">
-                        <div class="slds-box slds-var-m-around_x-large box" onclick={handleclick}>
+                    </div> -->
+                    <div class="slds-col slds-size_1-of-5">
+                        <div class="slds-box slds-var-m-around_x-large box">
                             <img src={cs} alt="CSK">
                         </div>
-                    </div> -->
+                    </div>
 
-                    <!-- <div class= "slds-col slds-size_1-of-5">
+                    <div class= "slds-col slds-size_1-of-5">
                         <div class="slds-box slds-var-m-around_x-large box">
                             <img src={rc} alt="RCB">
                         </div>
@@ -56,10 +56,10 @@
                         <div class="slds-box slds-var-m-around_x-large box">
                             <img src={sh} alt="SRH">
                         </div>
-                    </div> -->
+                    </div>
                 </div>
 
-                <!-- <div class="slds-grid">
+                <div class="slds-grid">
                     <div class= "slds-col slds-size_1-of-5">
                         <div class="slds-box slds-var-m-around_x-large box">
                             <img src={gt} alt="GT">
@@ -90,7 +90,7 @@
                         </div>
                     </div>
 
-                </div> -->
+                </div>
             </lightning-tab>
 
             <!-- Schedule tab -->

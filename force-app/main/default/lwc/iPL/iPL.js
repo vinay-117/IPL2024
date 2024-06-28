@@ -1,5 +1,6 @@
 import { LightningElement, wire, track } from 'lwc';
 import images from '@salesforce/resourceUrl/playersimg';
+import franchiseimages from '@salesforce/resourceUrl/Franchise';
 import playerdetails from '@salesforce/apex/IPL.playerdetails';
 import playerhighestdetails from '@salesforce/apex/IPL.playerhighestdetails';
 import playerCenturydetails from '@salesforce/apex/IPL.playerCenturydetails';
@@ -8,7 +9,7 @@ import playerStrikerate from '@salesforce/apex/IPL.playerStrikerate';
 import playerWickets from '@salesforce/apex/IPL.playerWickets';
 import playerEconomy from '@salesforce/apex/IPL.playerEconomy';
 import playerAverage from '@salesforce/apex/IPL.playerAverage';
-import getFranchiseDetails from '@salesforce/apex/iPL2.getFranchiseDetails';
+//import getFranchiseDetails from '@salesforce/apex/iPL2.getFranchiseDetails';
 // LMS
 // import { subscribe, MessageContext, unsubscribe } from 'lightning/messageService';
 // import MESSAGE_SERVICE from '@salesforce/messageChannel/Vinay__c';
@@ -18,20 +19,30 @@ export default class IPL extends LightningElement {
 
     
     cr = images + '/players/Cricket.jpg';
+    cs = franchiseimages + '/Franchise/CSK.png';
+    rc = franchiseimages + '/Franchise/RCB.png';
+    mi = franchiseimages + '/Franchise/MI.png';
+    kr = franchiseimages + '/Franchise/KKR.png';
+    sh = franchiseimages + '/Franchise/SRH.png';
+    gt = franchiseimages + '/Franchise/GT.png';
+    lg = franchiseimages + '/Franchise/LSG.png';
+    dc = franchiseimages + '/Franchise/DC.png';
+    rr = franchiseimages + '/Franchise/RR.png';
+    pk = franchiseimages + '/Franchise/KPXI.png';
 
-    franchiseImages = [
-        {Name:this.cs},
-        {Name:this.rc},
-        {Name:this.mi},
-        {Name:this.kr},
-        {Name:this.sh},
-        {Name:this.gt},
-        {Name:this.lg},
-        {Name:this.dc},
-        {Name:this.rr},
-        {Name:this.pk}
-    ]
-    franchiseFieldDetails
+    // franchiseImages = [
+    //     {Name:this.cs},
+    //     {Name:this.rc},
+    //     {Name:this.mi},
+    //     {Name:this.kr},
+    //     {Name:this.sh},
+    //     {Name:this.gt},
+    //     {Name:this.lg},
+    //     {Name:this.dc},
+    //     {Name:this.rr},
+    //     {Name:this.pk}
+    // ]
+    // franchiseFieldDetails
 
     record={}
     showRecord
@@ -143,16 +154,16 @@ export default class IPL extends LightningElement {
     //     this.subscribeHandler()
     // }
 
-    @wire(getFranchiseDetails)
-    records({data, error}){
-        if(data){
-            this.franchiseFieldDetails = data
-            console.log(data)
-        }
-        if(error){
-            console.error(error)
-        }
-    }
+    // @wire(getFranchiseDetails)
+    // records({data, error}){
+    //     if(data){
+    //         this.franchiseFieldDetails = data
+    //         console.log(data)
+    //     }
+    //     if(error){
+    //         console.error(error)
+    //     }
+    // }
     // subscribeHandler(){
     // subscribe(this.messageContext, MESSAGE_SERVICE, (message) => this.handleTeamSelected(message))
     // }
